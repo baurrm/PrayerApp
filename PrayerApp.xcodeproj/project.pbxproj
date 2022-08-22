@@ -13,7 +13,7 @@
 		D9018A8828983EE800A70BDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9018A8628983EE800A70BDA /* Main.storyboard */; };
 		D9018A8A28983EEA00A70BDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9018A8928983EEA00A70BDA /* Assets.xcassets */; };
 		D9018A8D28983EEA00A70BDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9018A8B28983EEA00A70BDA /* LaunchScreen.storyboard */; };
-		D9191F88289AC47900F9751C /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9191F87289AC47900F9751C /* TimeManager.swift */; };
+		D9191F88289AC47900F9751C /* TimeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9191F87289AC47900F9751C /* TimeData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		D9018A8928983EEA00A70BDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9018A8C28983EEA00A70BDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9018A8E28983EEA00A70BDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D9191F87289AC47900F9751C /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
+		D9191F87289AC47900F9751C /* TimeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +89,7 @@
 		D9191F86289AC42B00F9751C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D9191F87289AC47900F9751C /* TimeManager.swift */,
+				D9191F87289AC47900F9751C /* TimeData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,7 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9191F88289AC47900F9751C /* TimeManager.swift in Sources */,
+				D9191F88289AC47900F9751C /* TimeData.swift in Sources */,
 				D9018A8528983EE800A70BDA /* TimeViewController.swift in Sources */,
 				D9018A8128983EE800A70BDA /* AppDelegate.swift in Sources */,
 				D9018A8328983EE800A70BDA /* SceneDelegate.swift in Sources */,
