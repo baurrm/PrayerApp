@@ -13,10 +13,10 @@ struct TimeData: Codable {
 
 struct Items: Codable {  
     let fajr: String
-    let sunrise: String
+    let shurooq: String
     let dhuhr: String
     let asr: String
-    let magrib: String
+    let maghrib: String
     let isha: String
 }
 
