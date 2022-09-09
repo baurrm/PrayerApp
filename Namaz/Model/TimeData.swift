@@ -8,6 +8,7 @@ import Foundation
 
 struct TimeData: Codable {
     let query: String
+    let qibla_direction: String
     let items: [Items]
 }
 

@@ -10,6 +10,9 @@ import CoreLocation
 class TimeViewController: UIViewController {
     
     var apiKey = "f0e348543cc1093c4f71f13fb295f392"
+    var cityName = ""
+    var locationManager = CLLocationManager()
+    var QiblaVC = QiblaViewController()
     
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var fajrLabel: UILabel!
@@ -20,20 +23,36 @@ class TimeViewController: UIViewController {
     @IBOutlet weak var ishaLabel: UILabel!
     
     
-    var cityName = ""
-    
-    var locationManager = CLLocationManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
-        
     }
     
+    //Request Location button pressed.
     @IBAction func locationButton(_ sender: UIButton) {
         locationManager.requestLocation()
+    }
+    
+    //Navigate to QiblaViewController.
+    @IBAction func compassButton(_ sender: UIButton) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "goToQiblaViewContoller") as! QiblaViewController
+        nextViewController.modalPresentationStyle = .fullScreen
+        self.present(nextViewController, animated:true, completion:nil)
+    }
+    
+    //Update User Interface
+    func updateUI(decodedData: TimeData) {
+        DispatchQueue.main.async {
+            self.fajrLabel.text = decodedData.items[0].fajr
+            self.sunriseLabel.text = decodedData.items[0].shurooq
+            self.dhuhrLabel.text = decodedData.items[0].dhuhr
+            self.asrLabel.text = decodedData.items[0].asr
+            self.maghribLabel.text = decodedData.items[0].maghrib
+            self.ishaLabel.text = decodedData.items[0].isha
+        }
     }
     
     //MARK: - Fetch the data from API
@@ -47,19 +66,12 @@ class TimeViewController: UIViewController {
             }
             
             if let safeData = data {
-
-                DispatchQueue.main.async {
-                    do {
-                        let decodedData = try JSONDecoder().decode(TimeData.self, from: safeData)
-                        fajrLabel.text = decodedData.items[0].fajr
-                        sunriseLabel.text = decodedData.items[0].shurooq
-                        dhuhrLabel.text = decodedData.items[0].dhuhr
-                        asrLabel.text = decodedData.items[0].asr
-                        maghribLabel.text = decodedData.items[0].maghrib
-                        ishaLabel.text = decodedData.items[0].isha
-                    } catch {
-                        print(error)
-                    }
+                
+                do {
+                    let decodedData = try JSONDecoder().decode(TimeData.self, from: safeData)
+                    updateUI(decodedData: decodedData)
+                } catch {
+                    print(error)
                 }
             }
         }
