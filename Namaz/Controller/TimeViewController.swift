@@ -9,10 +9,11 @@ import CoreLocation
 
 class TimeViewController: UIViewController {
     
-    var apiKey = "f0e348543cc1093c4f71f13fb295f392"
-    var cityName = ""
-    var locationManager = CLLocationManager()
-    var QiblaVC = QiblaViewController()
+    private var apiKey = "f0e348543cc1093c4f71f13fb295f392"
+    private var cityName = ""
+    private var locationManager = CLLocationManager()
+    private var QiblaVC = QiblaViewController()
+    private var labelText: String? = ""
     
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var fajrLabel: UILabel!
@@ -30,6 +31,19 @@ class TimeViewController: UIViewController {
         locationManager.requestLocation()
     }
     
+    //Update User Interface
+    func updateUI(decodedData: TimeData) {
+        DispatchQueue.main.async {
+            self.fajrLabel.text = decodedData.items[0].fajr
+            self.sunriseLabel.text = decodedData.items[0].shurooq
+            self.dhuhrLabel.text = decodedData.items[0].dhuhr
+            self.asrLabel.text = decodedData.items[0].asr
+            self.maghribLabel.text = decodedData.items[0].maghrib
+            self.ishaLabel.text = decodedData.items[0].isha
+            self.labelText = decodedData.qibla_direction
+        }
+    }
+    
     //Request Location button pressed.
     @IBAction func locationButton(_ sender: UIButton) {
         locationManager.requestLocation()
@@ -41,18 +55,8 @@ class TimeViewController: UIViewController {
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "goToQiblaViewContoller") as! QiblaViewController
         nextViewController.modalPresentationStyle = .fullScreen
         self.present(nextViewController, animated:true, completion:nil)
-    }
-    
-    //Update User Interface
-    func updateUI(decodedData: TimeData) {
-        DispatchQueue.main.async {
-            self.fajrLabel.text = decodedData.items[0].fajr
-            self.sunriseLabel.text = decodedData.items[0].shurooq
-            self.dhuhrLabel.text = decodedData.items[0].dhuhr
-            self.asrLabel.text = decodedData.items[0].asr
-            self.maghribLabel.text = decodedData.items[0].maghrib
-            self.ishaLabel.text = decodedData.items[0].isha
-        }
+        nextViewController.qiblaDirectionLabel.text = labelText
+
     }
     
     //MARK: - Fetch the data from API

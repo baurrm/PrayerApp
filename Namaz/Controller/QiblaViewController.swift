@@ -14,11 +14,14 @@ class QiblaViewController: UIViewController {
         super.viewDidLoad()
         
     }
-    
+        
+   
     @IBOutlet weak var qiblaDirectionLabel: UILabel!
+    
     
     @IBAction func goBackbutton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     
 }
