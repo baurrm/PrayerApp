@@ -9,7 +9,7 @@ import CoreLocation
 
 class TimeViewController: UIViewController {
     
-    private var apiKey = "f0e348543cc1093c4f71f13fb295f392"
+    private var apiKey = "API Key from https://muslimsalat.com/api/"
     private var cityName = ""
     private var locationManager = CLLocationManager()
     private var QiblaVC = QiblaViewController()
