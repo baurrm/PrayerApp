@@ -7,3 +7,4 @@ API: https://muslimsalat.com/api/
 Screenshots:
 
 ![Alt text](/Simulator-ScreenShot.png/?raw=true "Optional Title")
+![Alt text](/Simulator-ScreenShot2.png/?raw=true "Optional Title")
