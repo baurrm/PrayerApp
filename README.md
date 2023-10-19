@@ -1,6 +1,6 @@
 # 🕌 PrayerApp
 
-PrayerApp is a mobile application on iOS. It shows time of Muslim Prayers☪️ and also shows Qibla Direction🕋  based on users location.
+Designed and implemented a mobile application on iOS that displays prayer timings☪️ and locate the direction of the Kaaba🕋 based on user's location.
 
 🛠 Used Technologies: Swift, MVC, CoreLocation, REST API
 
